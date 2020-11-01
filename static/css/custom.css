@@ -1,88 +1,49 @@
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:700);
-
-.title {
-    font-family: 'Inconsolata', monospace;
-    font-weight: bold;
-}
-
-header {
-    padding: 8em 0;
-}
-
-.btn-default {
-    background: #fff !important;
-}
-
-header, footer, .picker-wrapper {
-  transition: background-color 0.5s ease;
-}
-
-header, footer {
-    color: white;
-    background: #303F9F;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.51);
-}
-
-h1.title {
-    font-size: 4em;
-    font-weight: bold;
-}
-
-pre {
-    background: #212121;
-    color: white;
-}
-
-header p {
-    font-size: 1.4em;
-}
-
-footer {
-    padding: 50px 0;
-    text-align: center;
-    font-size: 1.1em;
-    margin-top: 3em;
-}
-
-footer a {
-    color: white;
-}
-
-footer a:hover {
-    color: white;
-}
-
-.color-picker {
-    background: rgba(255, 255, 255, 0.75);
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 20%; /*zmienia szerokość tabeli*/
     padding: 10px;
-    border: 1px solid rgba(203, 203, 203, 0.6);
-    border-radius: 2px;
-}
-
-.color-selected {
-    border: 1px solid;
-    height: 50px;
-    width: 50px;
-}
-
-.color-picker > div {
-    width: 40px;
-    display: inline-block;
-    height: 40px;
-    margin: 5px;
-    border-radius: 100%;
-    opacity: 0.95;
-}
-
-.picker-wrapper {
-    padding: 20px;
-}
-
-.color-picker > div:hover {
+  }
+  
+  /* Style the images inside the grid */
+  .column img {
+    opacity: 0.7;
+    cursor: pointer;
+    width: 100%; /*zmienia wielkość zdjęć w wierszu*/
+  }
+  
+  .column img:hover {
     opacity: 1;
-}
-
-
-#tutorial {
-    border: solid;
-}
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* The expanding image container (positioning is needed to position the close button and the text) */
+  .container {
+    position: relative;
+    display: none;
+  }
+  
+  /* Expanding image text */
+  #imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Closable button inside the image */
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+  }
