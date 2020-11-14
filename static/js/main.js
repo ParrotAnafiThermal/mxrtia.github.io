@@ -21,6 +21,8 @@ function initialize_intro() {
 
     var parent = document.getElementById("mainDiv");
     parent.appendChild(intro);
+
+    ReadFromDatabase();
 }
 
 
@@ -142,3 +144,44 @@ function myFunction(imgs) {
     // Show the container element (hidden with CSS)
     expandImg.parentElement.style.display = "block";
   }
+
+function ReadFromDatabase()
+{
+    var request = new XMLHttpRequest()
+
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://ankieta.asuscomm.com:5010/api/todoitems', true)
+
+    request.onload = function() 
+    {
+        // Begin accessing JSON data here
+
+        var data = JSON.parse(this.response);
+
+        if (request.status >= 200 && request.status < 400) {
+            data.forEach((Link) => {
+
+                var div = document.createElement('div');
+                div.classList.add('column');
+                div.id = Link.id;
+                document.getElementById('imagesContainer').appendChild(div);
+
+
+                var img = document.createElement('img'); 
+                img.src =Link.link;
+                img.setAttribute('src',Link.link);
+                img.setAttribute('onclick','myFunction(this)');
+
+                document.getElementById(Link.id).appendChild(img);
+
+
+              console.log(Link.link)
+            })
+          } else {
+            console.log('error')
+          }
+    }
+
+    // Send request
+    request.send();
+}
