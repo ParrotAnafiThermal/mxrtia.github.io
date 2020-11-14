@@ -1,4 +1,8 @@
 /* The grid: Four equal columns that floats next to each other */
+
+#header_p {
+  font-size: 70px;
+}
 .column {
     float: left;
     width: 20%; /*zmienia szerokość tabeli*/
